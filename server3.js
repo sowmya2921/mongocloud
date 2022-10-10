@@ -2,7 +2,6 @@ const { application } = require('express')
 var express = require('express')
 var app = express()
 app.set('view engine', 'pug');
-app.set('views','./views');
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
