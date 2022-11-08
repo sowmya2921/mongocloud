@@ -1,0 +1,8 @@
+html 
+   head 
+   body
+    h1 hello sellers 
+    ul 
+    each val in sellers
+     li= val.sellername
+       a(href=`/approveSeller/${val.GSTIN}`) Approve
