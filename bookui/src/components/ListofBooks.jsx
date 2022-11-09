@@ -48,7 +48,7 @@ function ListofBooks() {
                       <td>{book.title}</td>
                       <td>{book.authorname}</td>
                       <td>
-                        <Link class="nav-link active" to="/editbook"><button>Edit</button></Link>
+                        <Link class="nav-link active" to={`/editbook/${book.id}`}><button>Edit</button></Link>
                       </td>
                       <td><button onClick={()=>{deletebook(book['_id'])}}>Delete</button></td>
                     </tr>

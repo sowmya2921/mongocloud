@@ -28,7 +28,7 @@ app.get("/listofbooks",(req,res)=>{
 })
     
 app.get('/editbook/:id',(req,res)=>{
-            BookModel.findOne({_id:ObjectId(req.params.id)}) 
+            BookModel.findOne({id:req.params.id}) 
             .then((book)=>{
             console.log(book)
             res.send(book)
@@ -36,11 +36,10 @@ app.get('/editbook/:id',(req,res)=>{
         .catch(err=>console.log(err))      
     })
 
-    app.post("/updateStudent/:id",(req,res)=>{
-        console.log(req.body)
-            BookModel.findOneAndUpdate({_id:ObjectId(req.params.id)},{$set:{...req.body}})
+    app.post("/updatebook/:id",(req,res)=>{
+            BookModel.updateOne({id:req.params.id},{$set:{...req.body}})
             .then((book)=>{
-                res.redirect("/listofbooks")
+                res.send(book)
                 console.log(book)
             })
             .catch(err=>console.log(err))

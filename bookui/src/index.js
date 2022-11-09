@@ -19,7 +19,7 @@ root.render(
     <Route path="/" element={<App />}>
     <Route path='/addbook' element={<AddBook></AddBook>}></Route>
     <Route path='/listofbooks' element={<ListofBooks></ListofBooks>}></Route>
-    <Route path='/editbook' element={<Editbook></Editbook>}></Route>
+    <Route path='/editbook/:id' element={<Editbook></Editbook>}></Route>
     </Route>
   </Routes>
 </BrowserRouter>,
