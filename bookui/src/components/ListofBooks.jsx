@@ -8,16 +8,7 @@ function ListofBooks() {
     useEffect(()=>{
       getallbooks()
     },[])
-
-    function editbook(id){
-        fetch("http://localhost:4000/editbook/"+id)
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data)
-          
-        })
-      }
-
+    
     function deletebook(id){
       fetch("http://localhost:4000/deletebook/"+id)
       .then(res=>res.json())
@@ -57,7 +48,7 @@ function ListofBooks() {
                       <td>{book.title}</td>
                       <td>{book.authorname}</td>
                       <td>
-                        <Link class="nav-link active" to="/editbook"><button onClick={()=>{editbook(book['_id'])}}>Edit</button></Link>
+                        <Link class="nav-link active" to="/editbook"><button>Edit</button></Link>
                       </td>
                       <td><button onClick={()=>{deletebook(book['_id'])}}>Delete</button></td>
                     </tr>

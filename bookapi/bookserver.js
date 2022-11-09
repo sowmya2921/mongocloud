@@ -27,24 +27,25 @@ app.get("/listofbooks",(req,res)=>{
     }).catch((err)=>{console.log(err)})
 })
     
-//app.get('/editbook/:id',(req,res)=>{
-    //        BookModel.findOne({_id:ObjectId(req.params.id)}) 
-      //      .then((book)=>{
-        //    console.log(book)
-          //  res.send(book)
-       // })
-        //.catch(err=>console.log(err))      
-   // })
+app.get('/editbook/:id',(req,res)=>{
+            BookModel.findOne({_id:ObjectId(req.params.id)}) 
+            .then((book)=>{
+            console.log(book)
+            res.send(book)
+        })
+        .catch(err=>console.log(err))      
+    })
 
     app.post("/updateStudent/:id",(req,res)=>{
         console.log(req.body)
-            BookModel.updateOne({_id:ObjectId(req.params.id)},{$set:{...req.body}})
+            BookModel.findOneAndUpdate({_id:ObjectId(req.params.id)},{$set:{...req.body}})
             .then((book)=>{
                 res.redirect("/listofbooks")
                 console.log(book)
             })
             .catch(err=>console.log(err))
         })
+
 
 app.get('/deletebook/:id',(req,res)=>{
         BookModel.deleteOne({_id:ObjectId(req.params.id)})
